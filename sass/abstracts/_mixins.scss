@@ -12,3 +12,38 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+//MEDIA QUERY MENAGER
+/*
+$brakepoint argument choice
+
+phone <600px
+tab-port 900px-600px
+tab-land 1200px-900px
+big-desktop bigger than 1800px
+
+1em = 16px  do media query uzywać em zamiast rem!
+*/
+
+@mixin respond($brakepoint) {
+  @if $brakepoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+  @if $brakepoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $brakepoint == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $brakepoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
